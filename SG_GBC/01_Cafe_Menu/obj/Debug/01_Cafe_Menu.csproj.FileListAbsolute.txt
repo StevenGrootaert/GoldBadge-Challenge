@@ -1,0 +1,6 @@
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Menu\bin\Debug\01_Cafe_Menu.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Menu\bin\Debug\01_Cafe_Menu.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Menu\obj\Debug\01_Cafe_Menu.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Menu\obj\Debug\01_Cafe_Menu.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Menu\obj\Debug\01_Cafe_Menu.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Menu\obj\Debug\01_Cafe_Menu.pdb

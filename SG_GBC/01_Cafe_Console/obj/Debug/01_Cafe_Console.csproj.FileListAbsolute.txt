@@ -1,0 +1,10 @@
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\bin\Debug\01_Cafe_Console.exe.config
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\bin\Debug\01_Cafe_Console.exe
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\bin\Debug\01_Cafe_Console.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\bin\Debug\01_Cafe_Menu.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\bin\Debug\01_Cafe_Menu.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\obj\Debug\01_Cafe_Console.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\obj\Debug\01_Cafe_Console.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\obj\Debug\01_Cafe_Console.csproj.CopyComplete
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\obj\Debug\01_Cafe_Console.exe
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\01_Cafe_Console\obj\Debug\01_Cafe_Console.pdb
