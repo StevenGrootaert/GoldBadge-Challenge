@@ -42,11 +42,11 @@ namespace _01_Cafe_Console
                         DisplayMenu();
                         break;
                     case "4":
-                        Console.WriteLine("Goodbye.");
+                        Console.WriteLine("Goodbye.\n");
                         keepRunning = false;
                         break;
                     default:
-                        Console.WriteLine("Please enter a valid menu option number");
+                        Console.WriteLine("Please enter a valid menu option number.");
                         break;
                 }
                 Console.WriteLine("\nplease press any key to contiune. . .");
@@ -55,44 +55,28 @@ namespace _01_Cafe_Console
             }
         }
 
-        private void CreateMenuItem()   //needs attention
+        private void CreateMenuItem()
         {
             Console.Clear();
             Meal newMeal = new Meal();
 
-            bool hasValidNumber = false;
-            while (hasValidNumber == false)
+            bool hasValidItemNumber = false;
+            while (hasValidItemNumber == false)
             {
             Console.WriteLine("Enter the item number for the meal:");
             string newMealNumAsString = Console.ReadLine();
                 try
                 {
-                newMeal.MealNumber = int.Parse(newMealNumAsString);         // if I enter words not numbers here it breaks
-                    hasValidNumber = true;
+                newMeal.MealNumber = int.Parse(newMealNumAsString);
+                    hasValidItemNumber = true;
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine($"{ex.Message} please enter as a numeric number\n" +
-                    "press enter to try again");
+                    Console.WriteLine($"{ex.Message} Please enter as a numeric number.\n" +
+                    "Press enter to try again. . .");
                     Console.ReadLine();
                 }
             }
-
-            //***this loops me in here and doesn't add the item to list
-            //decimal decimalNumber = newMeal.MealNumber;
-            //bool canConvert = decimal.TryParse(newMealNumAsString, out decimalNumber);
-            //if (canConvert == true)
-            //{
-            //    newMeal.MealNumber = int.Parse(newMealNumAsString);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("please enter as a numeric number\n" +
-            //        "press enter to try again");
-            //    Console.ReadLine();
-            //    CreateMenuItem();
-            //}
-            // do i need to do another _menuRepo.AddMealToMenu(newMeal) ^^ here??? 
 
             Console.WriteLine("\nEnter the name of the meal:");
             newMeal.MealName = Console.ReadLine();
@@ -103,9 +87,25 @@ namespace _01_Cafe_Console
             Console.WriteLine("\nEnter the ingrediants of the meal:");
             newMeal.MealIngredients = Console.ReadLine();
 
+            bool hasValidPriceNumber = false;
+            while (hasValidPriceNumber == false)
+            {
             Console.WriteLine("\nEnter the price of the meal:");
             string newMealPriceAsString = Console.ReadLine();
+            try
+            {
             newMeal.MealPrice = decimal.Parse(newMealPriceAsString, System.Globalization.NumberStyles.AllowCurrencySymbol | System.Globalization.NumberStyles.Number);
+                    hasValidPriceNumber = true;
+            }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"{ex.Message} please enter as a numeric number.\n" +
+                    "Example: 12.34 or $12.34\n"+
+                    "Press enter to try again. . .");
+                    Console.ReadLine();
+                }
+            }
+
             _menuRepo.AddMealToMenu(newMeal);
         }
         private void DisplayMenu()
@@ -125,7 +125,7 @@ namespace _01_Cafe_Console
         private void RemoveMenuItem()
         {
             DisplayMenu();
-            Console.WriteLine("\nType the name of the menu item you wish to remove"); //change to delete by menu number - convert string to int problems
+            Console.WriteLine("\nType the name of the menu item you wish to remove"); //would like to delete by menu number - convert string to int problems
             string input = Console.ReadLine();
 
             bool wasDeleted = _menuRepo.DeleteFromMenu(input);
@@ -140,7 +140,7 @@ namespace _01_Cafe_Console
         }
         private void SeedMenuList()
         {
-            Meal clubSandwich = new Meal(1, "Club Sandwich", "A classic when you want everything", "bread, tomotoes, lettuce, bacon, ham, turkey, mayo, S&P",6.75m);
+            Meal clubSandwich = new Meal(1, "Club Sandwich", "For when you want everything", "bread, tomotoes, lettuce, bacon, ham, turkey, mayo, S&P",6.75m);
             Meal bltSandwich = new Meal(2, "BLT", "Classic minimalism as a sandwich", "bread, bacon, lettuce, tomato", 4.50m);
 
             _menuRepo.AddMealToMenu(clubSandwich);
