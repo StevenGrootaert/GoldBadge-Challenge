@@ -8,22 +8,22 @@ namespace _01_Cafe_Menu
 {
     public class MenuRepo
     {
-        private List<Menu> _menuList = new List<Menu>();
+        private List<Meal> _menuList = new List<Meal>();
 
-        public void AddMealToMenu(Menu item)
+        public void AddMealToMenu(Meal item)
         {
             _menuList.Add(item);
         }
 
-        public List<Menu> GetMenuList()
+        public List<Meal> GetMenuList()
         {
             return _menuList;
         }
 
         public bool DeleteFromMenu(string mealName)
         {
-            Menu menu = GetMenuItemByName(mealName);
-            if(mealName == null)
+            Meal menu = GetMenuItemByName(mealName);
+            if (mealName == null)
             {
                 return false;
             }
@@ -40,18 +40,53 @@ namespace _01_Cafe_Menu
             }
         }
 
-        //helper for delete method
-        public Menu GetMenuItemByName(string mealName)
+        //  helper methods
+        public Meal GetMenuItemByName(string mealName)
         {
-            foreach(Menu menu in _menuList)
+            foreach (Meal menu in _menuList)
             {
-                if(menu.MealName.ToLower() == mealName.ToLower())
+                if (menu.MealName.ToLower() == mealName.ToLower())
                 {
                     return menu;
                 }
             }
-
             return null;
         }
+
+        // DELETE method for delete by number -- not working out so well)
+        //public bool DeleteFromMenu(int mealNumber)
+        //{
+        //    Meal menu = GetMenuItemByNumber(mealNumber);
+        //    if (mealNumber == null)
+        //    {
+        //        return false;
+        //    }
+        //    int intialCount = _menuList.Count;
+        //    _menuList.Remove(menu);
+
+        //    if (intialCount > _menuList.Count)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        // helper for delete method (get by number -- not working out so well)
+        //public Meal GetMenuItemByNumber(int mealNumber)
+        //{
+        //    foreach(Meal menu in _menuList)
+        //    {
+        //        if(menu.MealNumber == mealNumber)
+        //        {
+        //            return menu;
+        //        }
+        //    }
+        //    return null;
+        //}
+
+        //helper for delete method (get by name)
     }
 }
