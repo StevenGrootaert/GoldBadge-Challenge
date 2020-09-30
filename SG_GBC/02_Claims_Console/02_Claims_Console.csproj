@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{72CADFF9-7967-473F-902A-8EE28CDB7364}</ProjectGuid>
+    <ProjectGuid>{B95689DF-F6CD-439A-B1DA-54EA6FD34899}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_01_Cafe_Console</RootNamespace>
-    <AssemblyName>01_Cafe_Console</AssemblyName>
+    <RootNamespace>_02_Claims_Console</RootNamespace>
+    <AssemblyName>02_Claims_Console</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,17 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cafe_Program.cs" />
-    <Compile Include="Cafe_ProgramUI.cs" />
+    <Compile Include="Claims_Program.cs" />
+    <Compile Include="Claims_ProgramUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\01_Cafe_Menu\01_Cafe_Menu.csproj">
-      <Project>{677120dd-b52f-4868-89eb-9e37db82ae8c}</Project>
-      <Name>01_Cafe_Menu</Name>
+    <ProjectReference Include="..\02_Claims_Department\02_Claims_Department.csproj">
+      <Project>{e206e2b9-b221-4c30-90d8-d13df57f8a57}</Project>
+      <Name>02_Claims_Department</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

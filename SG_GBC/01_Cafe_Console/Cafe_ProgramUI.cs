@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _01_Cafe_Console
 {
-    class ProgramUI
+    class Cafe_ProgramUI
     {
         private MenuRepo _menuRepo = new MenuRepo();
 
@@ -24,9 +24,10 @@ namespace _01_Cafe_Console
             {
                 Console.WriteLine("---- Komodo Cafe Menu Editor ----\n" +
                     "Type a number to select a menu option:\n\n" +
-                    "1. Add Meal Item to the Cafe Menu\n" +
-                    "2. Delete Meal Item from the Cafe Menu\n" +
-                    "3. View Cafe Menu\n");
+                    "1. Add a new Meal to the Cafe Menu\n\n" +
+                    "2. Delete a Meal from the Cafe Menu\n\n" +
+                    "3. View the Cafe Menu\n\n" +
+                    "4. Exit Menu Editor\n");
 
                 string input = Console.ReadLine();
                 switch (input)
@@ -40,6 +41,10 @@ namespace _01_Cafe_Console
                     case "3":
                         DisplayMenu();
                         break;
+                    case "4":
+                        Console.WriteLine("Goodbye.");
+                        keepRunning = false;
+                        break;
                     default:
                         Console.WriteLine("Please enter a valid menu option number");
                         break;
@@ -50,14 +55,28 @@ namespace _01_Cafe_Console
             }
         }
 
-        private void CreateMenuItem()
+        private void CreateMenuItem()   //needs attention
         {
             Console.Clear();
             Meal newMeal = new Meal();
 
+            bool hasValidNumber = false;
+            while (hasValidNumber == false)
+            {
             Console.WriteLine("Enter the item number for the meal:");
             string newMealNumAsString = Console.ReadLine();
-            newMeal.MealNumber = int.Parse(newMealNumAsString);         // if I enter words not numbers here it breaks
+                try
+                {
+                newMeal.MealNumber = int.Parse(newMealNumAsString);         // if I enter words not numbers here it breaks
+                    hasValidNumber = true;
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"{ex.Message} please enter as a numeric number\n" +
+                    "press enter to try again");
+                    Console.ReadLine();
+                }
+            }
 
             //***this loops me in here and doesn't add the item to list
             //decimal decimalNumber = newMeal.MealNumber;
@@ -73,6 +92,7 @@ namespace _01_Cafe_Console
             //    Console.ReadLine();
             //    CreateMenuItem();
             //}
+            // do i need to do another _menuRepo.AddMealToMenu(newMeal) ^^ here??? 
 
             Console.WriteLine("\nEnter the name of the meal:");
             newMeal.MealName = Console.ReadLine();
