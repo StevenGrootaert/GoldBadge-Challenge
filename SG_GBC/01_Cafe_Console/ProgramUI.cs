@@ -23,9 +23,9 @@ namespace _01_Cafe_Console
             while (keepRunning)
             {
                 Console.WriteLine("Select a menu option:\n" +
-                    "1. Add Meal Item to the Cafe Menu" +
-                    "2. Delete Meal Item from the Cafe Menu" +
-                    "3. View Cafe Menu");
+                    "1. Add Meal Item to the Cafe Menu\n" +
+                    "2. Delete Meal Item from the Cafe Menu\n" +
+                    "3. View Cafe Menu\n");
 
                 string input = Console.ReadLine();
                 switch (input)
@@ -43,7 +43,7 @@ namespace _01_Cafe_Console
                         Console.WriteLine("Please enter a valid menu option number");
                         break;
                 }
-                Console.WriteLine("please pres any key to contiune. . .");
+                Console.WriteLine("\nplease pres any key to contiune. . .");
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -54,11 +54,53 @@ namespace _01_Cafe_Console
             Console.Clear();
             Menu newMeal = new Menu();
 
-            Console.WriteLine("Enter the item number for the Meal:");    // is there a way to auto generate this number? use dictionay or directory?
+            Console.WriteLine("Enter the item number for the meal:");    // is there a way to auto generate this number? use dictionay or directory?
             string newMealNumAsString = Console.ReadLine();
-            newMeal.MealNumber = Convert.ToDecimal(newMealNumAsString); // why not?!
+            newMeal.MealNumber = int.Parse(newMealNumAsString);         //if I enter words not numbers here it breaks
 
-            //string newMeal.MealNumber = Console.ReadLine();
+            Console.WriteLine("\nEnter the name of the meal:");
+            newMeal.MealName = Console.ReadLine();
+
+            Console.WriteLine("Enter the description of the meal:");
+            newMeal.MealDescription = Console.ReadLine();
+
+            Console.WriteLine("Enter the ingrediants of the meal:");
+            newMeal.MealIngredients = Console.ReadLine();
+
+            Console.WriteLine("\nEnter the price of the meal \n ex 12.75 not $12.75");  //can we accept both?
+            string newMealPriceAsString = Console.ReadLine();
+            newMeal.MealPrice = decimal.Parse(newMealPriceAsString);
+
+            _menuRepo.AddMealToMenu(newMeal);
+        }
+        private void DisplayMenu()
+        {
+            Console.Clear();
+            List<Menu> listOfMenu = _menuRepo.GetMenuList();
+            foreach(Menu menu in listOfMenu)
+            {
+                Console.WriteLine(      // work on formatting this
+                    $"Meal Number: {menu.MealNumber}\n"+
+                    $"Meal Name: {menu.MealName}\n" +
+                    $"Meal Description: {menu.MealDescription}\n" +
+                    $"Price: ${menu.MealPrice}\n"
+                    );
+            }
+        }
+        private void RemoveMenuItem()
+        {
+            DisplayMenu();
+            Console.WriteLine("\nEnter the menu item you wish to remove"); //change helper method to list by menu number
+            string input = Console.ReadLine();
+            bool wasDeleted = _menuRepo.DeleteFromMenu(input);
+            if (wasDeleted)
+            {
+                Console.WriteLine("The menu item was removed.");
+            }
+            else
+            {
+                Console.WriteLine("The menu item wasn't removed! was it entered correctly?");
+            }
         }
         private void SeedMenuList()
         {
