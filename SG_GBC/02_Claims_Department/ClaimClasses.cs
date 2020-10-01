@@ -31,6 +31,7 @@ namespace _02_Claims_Department
             ClaimAmount = claimAmount;
             DateOfIncident = dateOfIncident;
             DateOfClaim = dateOfClaim;
+            IsValid = isValid;
         }
     }
 }

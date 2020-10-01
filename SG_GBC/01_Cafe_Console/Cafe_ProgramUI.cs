@@ -49,7 +49,7 @@ namespace _01_Cafe_Console
                         Console.WriteLine("Please enter a valid menu option number.");
                         break;
                 }
-                Console.WriteLine("\nplease press any key to contiune. . .");
+                Console.WriteLine("\nPlease press any key to contiune. . .");
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -105,7 +105,6 @@ namespace _01_Cafe_Console
                     Console.ReadLine();
                 }
             }
-
             _menuRepo.AddMealToMenu(newMeal);
         }
         private void DisplayMenu()
