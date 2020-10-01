@@ -1,0 +1,10 @@
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\bin\Debug\02_Claims_Console.exe.config
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\bin\Debug\02_Claims_Console.exe
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\bin\Debug\02_Claims_Console.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\bin\Debug\02_Claims_Department.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\bin\Debug\02_Claims_Department.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\obj\Debug\02_Claims_Console.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\obj\Debug\02_Claims_Console.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\obj\Debug\02_Claims_Console.csproj.CopyComplete
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\obj\Debug\02_Claims_Console.exe
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Console\obj\Debug\02_Claims_Console.pdb

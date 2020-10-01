@@ -1,0 +1,5 @@
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Department\bin\Debug\02_Claims_Department.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Department\bin\Debug\02_Claims_Department.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Department\obj\Debug\02_Claims_Department.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Department\obj\Debug\02_Claims_Department.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\02_Claims_Department\obj\Debug\02_Claims_Department.pdb
