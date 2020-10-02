@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +9,21 @@ namespace _02_Claims_Department
 {
     public class ClaimsRepo
     {
-        private List<Claim> _claimsList = new List<Claim>();
+       // private List<Claim> _claimsList = new List<Claim>();
+        private Queue<Claim> _claimsQueue = new Queue<Claim>();
+
 
         // ---- CRUD ----
         // Create
         public void AddClaimToList(Claim incident)
         {
-            _claimsList.Add(incident);
+            _claimsQueue.Enqueue(incident);
         }
 
         // Read
-        public List<Claim> GetClaimList()
+        public Queue<Claim> GetClaimList()
         {
-            return _claimsList;
+            return _claimsQueue;
         }
 
         // Update
@@ -46,10 +49,15 @@ namespace _02_Claims_Department
 
         // Delete (not sure we ever want to delete a claim so I'm not going to write this method)
 
+       // public void
+        //display (you an instance of the queue?) get claims methid all claims
+        //peek see next queue on top
+        // display item in queue add a cw that asks if they want to deal w/ the queue n/ means remove from queue. 
+
         // --- helper methods ---
         public Claim GetClaimByID(int claimID)
         {
-            foreach (Claim claim in _claimsList)
+            foreach (Claim claim in _claimsQueue)
             {
                 if (claim.ClaimID == claimID)
                 {
