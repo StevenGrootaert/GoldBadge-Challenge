@@ -28,9 +28,7 @@ namespace _02_Claims_Department
 
         public Claim ViewNextClaim()
         {
-            
             return _claimsQueue.Peek();
-            //Console.WriteLine("next",_claimsQueue.Peek());
         }
 
         public void ProcessClaim()
@@ -38,6 +36,7 @@ namespace _02_Claims_Department
             _claimsQueue.Dequeue();
         }
         // Update
+        /*
         public bool UpateClaimQueue(int claimID, Claim newClaimDetails)
         {
             Claim existingClaimDetails = GetClaimByID(claimID);
@@ -57,13 +56,9 @@ namespace _02_Claims_Department
                 return false;
             }
         }
+        */
 
         // Delete (not sure we ever want to delete a claim so I'm not going to write this method)
-
-        // public void deal with queue next or whatever
-        //display (you an instance of the queue?) get claims methid all claims
-        //peek see next queue on top
-        // display item in queue add a cw that asks if they want to deal w/ the queue n/ means remove from queue. 
 
         // --- helper methods ---
         public Claim GetClaimByID(int claimID)
