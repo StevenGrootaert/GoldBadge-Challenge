@@ -15,19 +15,30 @@ namespace _02_Claims_Department
 
         // ---- CRUD ----
         // Create
-        public void AddClaimToList(Claim incident)
+        public void AddClaimToQueue(Claim incident)
         {
             _claimsQueue.Enqueue(incident);
         }
 
         // Read
-        public Queue<Claim> GetClaimList()
+        public Queue<Claim> GetClaimQueue()
         {
             return _claimsQueue;
         }
 
+        public Claim ViewNextClaim()
+        {
+            
+            return _claimsQueue.Peek();
+            //Console.WriteLine("next",_claimsQueue.Peek());
+        }
+
+        public void ProcessClaim()
+        {
+            _claimsQueue.Dequeue();
+        }
         // Update
-        public bool UpateClaimList(int claimID, Claim newClaimDetails)
+        public bool UpateClaimQueue(int claimID, Claim newClaimDetails)
         {
             Claim existingClaimDetails = GetClaimByID(claimID);
             if(existingClaimDetails != null)
@@ -49,7 +60,7 @@ namespace _02_Claims_Department
 
         // Delete (not sure we ever want to delete a claim so I'm not going to write this method)
 
-       // public void
+        // public void deal with queue next or whatever
         //display (you an instance of the queue?) get claims methid all claims
         //peek see next queue on top
         // display item in queue add a cw that asks if they want to deal w/ the queue n/ means remove from queue. 

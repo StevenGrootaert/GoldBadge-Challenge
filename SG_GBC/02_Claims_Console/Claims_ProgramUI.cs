@@ -14,7 +14,7 @@ namespace _02_Claims_Console
 
         public void Run()
         {
-            SeedClaimsList();
+            SeedClaimsQueue();
             MenuUI();
         }
 
@@ -27,9 +27,8 @@ namespace _02_Claims_Console
                     "Type a number to select a menu option:\n\n" +
                     "1. View all claims\n\n" +
                     "2. Process next claim\n\n" +
-                    "3. Update an existing claim\n\n" +
-                    "4. Enter a new claim\n\n" +
-                    "5. Exit Menu Editor\n");
+                    "3. Enter a new claim\n\n" +
+                    "4. Exit Menu Editor\n");
 
                 string input = Console.ReadLine();
                 switch (input)
@@ -38,18 +37,12 @@ namespace _02_Claims_Console
                         DisplayClaims();
                         break;
                     case "2":
-                        // bring up next claim in queue
-                        NextClaim();
+                        ProcessNextClaim();
                         break;
                     case "3":
-                        // update method
-                        UpdateClaim();
-                        break;
-                    case "4":
-                        // enter new claim method
                         CreateClaim();
                         break;
-                    case "5":
+                    case "4":
                         Console.WriteLine("Goodbye.\n");
                         keepRunning = false;
                         break;
@@ -67,27 +60,43 @@ namespace _02_Claims_Console
             Console.Clear();
             Console.WriteLine("Claim ID".PadRight(8, ' ') + "\tType".PadRight(12, ' ') + "\tDescription".PadRight(40, ' ') + "\tAmount".PadRight(16, ' ') + "\tDate of Accident".PadRight(18, ' ') + "\tDate of Claim".PadRight(18, ' ') + "\t\tIs Valid".PadRight(8, ' ') + "\n");
 
-            string test = "steven";
-            string testing = "grootaert";
-            Console.WriteLine("{0,-10}{1,-10}", test, testing);
-            Queue<Claim> listOfClaims = _claimsQueue.GetClaimList();
+            //string test = "steven";
+            //string testing = "grootaert";
+            //Console.WriteLine("{0,-10}{1,-10}", test, testing);
+            Queue<Claim> queueOfClaims = _claimsQueue.GetClaimQueue();
                     // string interp of CLAIM01
                     // string interp of CLAIM02
-            foreach(Claim claim in listOfClaims)
+            foreach(Claim claim in queueOfClaims)
             {
-                Console.WriteLine($"  {claim.ClaimID}".PadRight(8,' ') + $"\t{claim.TypeOfClaim}".PadRight(12, ' ') + $"\t{claim.Description}".PadRight(40, '.') + $"\t${claim.ClaimAmount}".PadRight(16, ' ') + $"\t{claim.DateOfIncident.ToShortDateString()}".PadRight(18, ' ') + $"\t{claim.DateOfClaim.ToShortDateString()}".PadRight(18, ' ') + $"\t\t{claim.IsValid}\n".PadRight(8, ' '));
+                Console.WriteLine($"  {claim.ClaimID}".PadRight(8,' ') + $"\t{claim.TypeOfClaim}".PadRight(12, ' ') + $"\t{claim.Description}".PadRight(40, ' ') + $"\t${claim.ClaimAmount}".PadRight(16, ' ') + $"\t{claim.DateOfIncident.ToShortDateString()}".PadRight(18, ' ') + $"\t{claim.DateOfClaim.ToShortDateString()}".PadRight(18, ' ') + $"\t\t{claim.IsValid}\n".PadRight(8, ' '));
             }
         }
 
-        private void NextClaim()
+        private void ProcessNextClaim() // try catch Execption for when claim queue is empty... maybe come back to this
         {
-            // this will have somthing to do with the queue collection type. put claims made with the class and put them in here?
+            Console.Clear();
+            Claim nextClaim =_claimsQueue.ViewNextClaim();
+            Console.WriteLine("The first claim on the queue is:\n");
+            Console.WriteLine("Claim ID".PadRight(8, ' ') + "\tType".PadRight(12, ' ') + "\tDescription".PadRight(40, ' ') + "\tAmount".PadRight(16, ' ') + "\tDate of Accident".PadRight(18, ' ') + "\tDate of Claim".PadRight(18, ' ') + "\t\tIs Valid".PadRight(8, ' ') + "\n");
+            Console.WriteLine($"  {nextClaim.ClaimID}".PadRight(8, ' ') + $"\t{nextClaim.TypeOfClaim}".PadRight(12, ' ') + $"\t{nextClaim.Description}".PadRight(40, ' ') + $"\t${nextClaim.ClaimAmount}".PadRight(16, ' ') + $"\t{nextClaim.DateOfIncident.ToShortDateString()}".PadRight(18, ' ') + $"\t{nextClaim.DateOfClaim.ToShortDateString()}".PadRight(18, ' ') + $"\t\t{nextClaim.IsValid}\n".PadRight(8, ' '));
+            
+            Console.WriteLine("\nDo you wish to process this Claim? (y/n)");
+            string processClaimString = Console.ReadLine().ToLower();
+            if (processClaimString == "y")
+            {
+                _claimsQueue.ProcessClaim();
+            }
+            else
+            {
+                Console.Clear();
+                MenuUI();
+            }
         }
 
-        private void UpdateClaim()
-        {
+        //private void UpdateClaim() // this is a lot of UI to write I may not have time to do this esp when I don't think it's needed as per the prompt
+        //{
 
-        }
+        //}
 
         private void CreateClaim()
         {
@@ -154,8 +163,6 @@ namespace _02_Claims_Console
             DateTime newClaimMadeDate = DateTime.Parse(newClaimDateMadeString);
             newClaim.DateOfClaim = newClaimMadeDate;
 
-
-            //if (newClaimMadeDate - newClaimIncidentDate <= DateTime. 
             int isValid = DateTime.Compare(newClaimMadeDate, newClaimIncidentDate);
             if (isValid <= 30)
             {
@@ -166,7 +173,7 @@ namespace _02_Claims_Console
                 newClaim.IsValid = false;
             }
 
-            //Console.WriteLine("\nWas the Claim made within 30 Days of the Incident? (y/n)"); // would like to make with automatic with a TimeSpan calc..
+            //Console.WriteLine("\nWas the Claim made within 30 Days of the Incident? (y/n)"); // would like to make with automatic with a calculation ^^ see above
             //string isClaimValidString = Console.ReadLine().ToLower();
             //if (isClaimValidString == "y")
             //{
@@ -177,38 +184,11 @@ namespace _02_Claims_Console
             //    newClaim.IsValid = false;
             //}
 
-            _claimsQueue.AddClaimToList(newClaim);
-
-            //Console.WriteLine("\n Enter the 4 digit YEAR the incident took place.\n");
-            //string newClaimYearString = Console.ReadLine();
-            //DateTime newClaimYearInt = DateTime.Parse(newClaimYearString);
-
-            //Console.WriteLine("\n Enter the 2 digit MONTH the incident took place.\n");
-            //string newClaimMonthString = Console.ReadLine();
-            //DateTime newClaimMonthInt = DateTime.Parse(newClaimMonthString);
-
-            //Console.WriteLine("\n Enter the 2 digit DAY the incident took place.\n");
-            //string newClaimDayString = Console.ReadLine();
-            //DateTime newClaimDayInt = DateTime.Parse(newClaimDayString);
-
-
-            //Console.WriteLine("\n Enter the 4 digit YEAR the incident took place.\n");
-            //string newClaimYearString = Console.ReadLine();
-            //int newClaimYearInt = int.Parse(newClaimYearString);
-
-            //Console.WriteLine("\n Enter the 2 digit MONTH the incident took place.\n");
-            //string newClaimMonthString = Console.ReadLine();
-            //int newClaimMonthInt = int.Parse(newClaimMonthString);
-
-            //Console.WriteLine("\n Enter the 2 digit DAY the incident took place.\n");
-            //string newClaimDayString = Console.ReadLine();
-            //int newClaimDayInt = int.Parse(newClaimDayString);
-
-            //newClaim.DateOfIncident = new DateTime(newClaimYearInt, newClaimMonthInt, newClaimDayInt);
+            _claimsQueue.AddClaimToQueue(newClaim);
 
         }
 
-        private void SeedClaimsList()
+        private void SeedClaimsQueue()
         {
             DateTime dateOfIncident01 = new DateTime(2018, 04, 25);
             DateTime dateOfClaim01 = new DateTime(2018, 04, 27);
@@ -222,9 +202,9 @@ namespace _02_Claims_Console
             DateTime dateOfClaim03 = new DateTime(2018, 06, 01);
             Claim claim03 = new Claim(3, ClaimType.Theft, "Stolen pancakes.", 4.00m, dateOfIncident03, dateOfClaim03, false);
 
-            _claimsQueue.AddClaimToList(claim01);
-            _claimsQueue.AddClaimToList(claim02);
-            _claimsQueue.AddClaimToList(claim03);
+            _claimsQueue.AddClaimToQueue(claim01);
+            _claimsQueue.AddClaimToQueue(claim02);
+            _claimsQueue.AddClaimToQueue(claim03);
         }
     }
 }
