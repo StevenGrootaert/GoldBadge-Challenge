@@ -9,7 +9,6 @@ namespace _02_Claims_Department
 {
     public class ClaimsRepo
     {
-       // private List<Claim> _claimsList = new List<Claim>();
         private Queue<Claim> _claimsQueue = new Queue<Claim>();
 
 

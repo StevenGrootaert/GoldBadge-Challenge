@@ -10,8 +10,7 @@ namespace _03_Badges_Console
     class BadgesProgramUI
     {
         private BadgeRepo _badgeAccess = new BadgeRepo();
-        private BadgeRepo _doorAccess = new BadgeRepo(); // added to try and fix
-        private List<Badge> _doorList = new List<Badge>(); // and this is another try I think this might work for the if else door NONe thing
+        
         public void Run()
         {
             SeedBadgeMenu();
@@ -66,13 +65,13 @@ namespace _03_Badges_Console
 
             Console.WriteLine("List a door that it needs access to:");
             string inputDoorAdd = Console.ReadLine();
-            Console.WriteLine($"adding access to {inputDoorAdd}");
+            Console.WriteLine($"adding access to {inputDoorAdd}\n");
             badge.AddAccess(inputDoorAdd);
 
             bool keepRunning = true;
             while (keepRunning)
             {
-            Console.WriteLine("are there other doors you wish to add? (y/n)");
+            Console.WriteLine("Are there other doors you wish to add? (y/n)");
             string input = Console.ReadLine().ToLower();
             switch (input)
             {
@@ -97,21 +96,44 @@ namespace _03_Badges_Console
         {
             Console.WriteLine("which door do you want to add?");
             string doorIDAdd = Console.ReadLine();
-            Console.WriteLine($"adding access to {doorIDAdd}");
+            Console.WriteLine($"adding access to {doorIDAdd}\n");
             return badge.AddAccess(doorIDAdd);
         }
 
         private int InputBadgeID()
         {
-            Console.WriteLine("input a badge ID");
+            Console.WriteLine("input a badge ID #"); // if not a number that can be parsed Ex throws.. 
             string input = Console.ReadLine();
             return int.Parse(input);
         }
 
+        /* . . . I can't get this Try Catch to work in my current state
+        private int InputBadgeID() // not all code paths return value 
+            
+        {
+            bool hasValidBadgeID = false;
+            while (hasValidBadgeID == false)
+            {
+                Console.WriteLine("input a badge ID #");
+                string stringInput = Console.ReadLine();
+                try
+                {
+                    return int.Parse(stringInput);
+                    hasValidBadgeID = true;
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"{ex.Message} Please enter as a numeric number.\n" +
+                    "Press enter to try again. . .");
+                    Console.ReadLine();
+                }
+            }
+        }
+        */
+
         private void EditBadgeDoors(Badge badge)
         {
             DisplayBadge(badge);
-            // badge 1243 has access to door A2 A3
             Console.WriteLine("What would you like to do?\n" +
                 "Type a number to select a menu option:\n\n" +
                 "1. Add a door\n\n" +
@@ -128,7 +150,7 @@ namespace _03_Badges_Console
                     //2.remove a door
                     Console.WriteLine("which door do you want to remove?");
                     string doorIDRemove = Console.ReadLine();
-                    Console.WriteLine($"removing access to {doorIDRemove}");
+                    Console.WriteLine($"removing access to {doorIDRemove}\n");
                     badge.RemoveAccess(doorIDRemove);
                     break;
                 case "3":
@@ -137,7 +159,7 @@ namespace _03_Badges_Console
                     badge.RemoveAllAccess();
                     break;
                 default:
-                    Console.WriteLine($"Don't know what to do with {badgeOperation}.");
+                    Console.WriteLine("Please enter a valid menu option number."); // return to maain try to return to this menu withou looping?
                     break;
             }
         }
@@ -153,9 +175,9 @@ namespace _03_Badges_Console
                 var badge = _badgeAccess.GetBadge(badgeID);
                 EditBadgeDoors(badge);
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine($"could not find badge with ID {badgeID}: {ex.Message}");
+                Console.WriteLine($"could not find badge with ID {badgeID}");
             }
         }
 
@@ -170,38 +192,37 @@ namespace _03_Badges_Console
             }
         }
 
-        private void DisplayBadge(Badge badge) // if badge has no doors, say have access to NONE. 
-        {
-            var allDoors = string.Join(", ", badge.AllAccess());
-            Console.WriteLine($"\nBadge {badge.BadgeID} has access to {allDoors}\n");
-        }
-
-        /*
         private void DisplayBadge(Badge badge)
         {
-            if (badge.AllAccess() = false)
+            var allDoors = string.Join(", ", badge.AllAccess());
+            bool allDoorsBool = string.IsNullOrEmpty(allDoors);
+            if (allDoorsBool == true)
             {
-                Console.WriteLine($"\nBadge {badge.BadgeID} has access to NONE\n");
+                Console.WriteLine($"\nBadge ID # {badge.BadgeID} doesn't have access to ANY door\n");
             }
             else
             {
-            string allDoors = string.Join(", ", badge.AllAccess());
-            Console.WriteLine($"\nBadge {badge.BadgeID} has access to {allDoors}\n");
+            Console.WriteLine($"\nBadge ID #{badge.BadgeID} has access to doors: {allDoors}\n");
             }
         }
-        */
 
         private void SeedBadgeMenu()
         {
-            Badge badge01 = new Badge(98765);
-            badge01.AddAccess("A5");
-            badge01.AddAccess("A3");
+            Badge badge01 = new Badge(12345);
+            badge01.AddAccess("A7");
             _badgeAccess.AddBadge(badge01);
 
-            Badge badge02 = new Badge(12345);
+            Badge badge02 = new Badge(22345);
+            badge02.AddAccess("A1");
             badge02.AddAccess("A4");
-            badge02.AddAccess("A2");
+            badge02.AddAccess("B1");
+            badge02.AddAccess("B2");
             _badgeAccess.AddBadge(badge02);
+
+            Badge badge03 = new Badge(32345);
+            badge03.AddAccess("A4");
+            badge03.AddAccess("A5");
+            _badgeAccess.AddBadge(badge03);
         }
 
     }

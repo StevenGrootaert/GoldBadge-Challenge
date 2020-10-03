@@ -15,5 +15,3 @@ namespace _03_Badges_Console
         }
     }
 }
-
-
