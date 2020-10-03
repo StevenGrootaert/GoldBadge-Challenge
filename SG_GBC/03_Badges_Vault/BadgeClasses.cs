@@ -10,24 +10,29 @@ namespace _03_Badges_Vault
     {
         public int BadgeID { get; set; }
 
-        private HashSet<string> doorAccess = new HashSet<string>();
+        private HashSet<string> _doorAccess = new HashSet<string>();
         public bool AddAccess(string doorNumber)
         {
-            return doorAccess.Add(doorNumber);
+            return _doorAccess.Add(doorNumber);
         }
 
         public bool RemoveAccess(string doorNumber)
         {
-            return doorAccess.Remove(doorNumber);
+            return _doorAccess.Remove(doorNumber);
+        }
+
+        public void RemoveAllAccess()
+        {
+            _doorAccess = new HashSet<string>();
         }
 
         public List<string> AllAccess()
         {
-            return doorAccess.ToList();
+            return _doorAccess.ToList();
         }
 
         public Badge() { } // blank constructor
-        // not forcing the addition of a door access bc it's possible to not have access to any doors
+        // not forcing the addition of a door access bc it's possible for a badgeID to not have access to any doors
         public Badge(int badgeID)
         {
             BadgeID = badgeID;

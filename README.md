@@ -2,11 +2,13 @@
 Steven Grootaert: Gold Badge Challenges for SD-62. I remade this Git Repository when I was doing some trouble shooting when having problems pushing up to Git. Long story short I deleted the previous Git Repo remade this Git Repo before I figured out all I had to do was 'git pull origin master' to add the Readme Github generated to my local computer before when pushing up. 
 
 In this Solution file are 3 Challenges:
-    1. Challenge 1: Cafe - Komodo Cafe
+
+    1. Challenge 1: Cafe - Komodo Cafe 
     2. Challenge 2: Claims - Komodo Claims Department
     3. Challenge 3: Badges - Komodo Insurance
 
 The files are orgainzed as follows:
+
     01_Cafe_Console: the console app for the user
     01_Cafe_Menu: the class library for the repository methods
     01_Cfae_Tests: the unit tests for the repository methods

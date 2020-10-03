@@ -1,0 +1,6 @@
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\03_Badges_Vault\bin\Debug\03_Badges_Vault.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\03_Badges_Vault\bin\Debug\03_Badges_Vault.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\03_Badges_Vault\obj\Debug\03_Badges_Vault.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\03_Badges_Vault\obj\Debug\03_Badges_Vault.dll
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\03_Badges_Vault\obj\Debug\03_Badges_Vault.pdb
+C:\ElevenFiftyProjects\01_GoldBadge\03_Class_Projects\Gold Badge Challenges\SG_GBC\03_Badges_Vault\obj\Debug\03_Badges_Vault.csprojAssemblyReference.cache
