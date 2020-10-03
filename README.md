@@ -1,5 +1,5 @@
 # GoldBadge-Challenge
-Steven Grootaert: Gold Badge Challenges for SD-62. I remade this Git Repository I was doing some trouble shooting when having problems pushing up to Git. Long story short I deleted the previous Gir Repo remade this Git Repo before I figured out all I had to do was 'git pull origin master' to add this Readme Github generated to my local computer before when pushing up. 
+Steven Grootaert: Gold Badge Challenges for SD-62. I remade this Git Repository when I was doing some trouble shooting when having problems pushing up to Git. Long story short I deleted the previous Git Repo remade this Git Repo before I figured out all I had to do was 'git pull origin master' to add the Readme Github generated to my local computer before when pushing up. 
 
 In this Solution file are 3 Challenges:
     1. Challenge 1: Cafe - Komodo Cafe
@@ -16,7 +16,7 @@ The files are orgainzed as follows:
     02_Claims_Tests: the unit tests for the repository methods
 
     03_Badges_Console: the unit tests for the repository methods
-    03_Badges_Directory: the class library for the repository methods
+    03_Badges_Vault: the class library for the repository methods
     03_Badges_Tests: the unit tests for the repository methods
 
 I have left commented code where I attempted certain things and/or other ways to accomplish the same task. 

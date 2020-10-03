@@ -53,40 +53,39 @@ namespace _01_Cafe_Menu
             return null;
         }
 
-        // DELETE method for delete by number -- not working out so well)
-        //public bool DeleteFromMenu(int mealNumber)
-        //{
-        //    Meal menu = GetMenuItemByNumber(mealNumber);
-        //    if (mealNumber == null)
-        //    {
-        //        return false;
-        //    }
-        //    int intialCount = _menuList.Count;
-        //    _menuList.Remove(menu);
+        /* DELETE method for delete by number -- not working out so well)
+        public bool DeleteFromMenu(int mealNumber)
+        {
+            Meal menu = GetMenuItemByNumber(mealNumber);
+            if (mealNumber == null)
+            {
+                return false;
+            }
+            int intialCount = _menuList.Count;
+            _menuList.Remove(menu);
 
-        //    if (intialCount > _menuList.Count)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+            if (intialCount > _menuList.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        // helper for delete method get by number -- not working out so well)
 
-        // helper for delete method (get by number -- not working out so well)
-        //public Meal GetMenuItemByNumber(int mealNumber)
-        //{
-        //    foreach(Meal menu in _menuList)
-        //    {
-        //        if(menu.MealNumber == mealNumber)
-        //        {
-        //            return menu;
-        //        }
-        //    }
-        //    return null;
-        //}
-
-        //helper for delete method (get by name)
+        public Meal GetMenuItemByNumber(int mealNumber)
+        {
+            foreach(Meal menu in _menuList)
+            {
+                if(menu.MealNumber == mealNumber)
+                {
+                    return menu;
+                }
+            }
+            return null;
+        }
+        */
     }
 }
